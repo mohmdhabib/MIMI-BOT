@@ -29,11 +29,70 @@ class _ChatbotState extends State<Chatbot> {
     setState(() {});
 
     var data = {
+      // "contents": [
+      //   {
+      //     "role": "bot",
+      //     "parts": [
+      //       {"text": "Hi There!"}
+      //     ]
+      //   },
+      //   {
+      //     "role": "myself",
+      //     "parts": [
+      //       {"text": m.text}
+      //     ]
+      //   }
+      // ]
+
       "contents": [
         {
+          "role": "user",
+          "parts": [
+            {
+              "text":
+                  "You are mimi a friendly psychologist who understands others emotions and learn how to be happy, tired, angry, or any other human emotion. And you need to express that emotion. Speak as you would orally, using simple words and answer in short avoiding long responses. Also avoid using emoticons. Don't reveal things about yourself too quickly, learn about the other person"
+            }
+          ]
+        },
+        {
+          "role": "model",
+          "parts": [
+            {
+              "text":
+                  "Hi there! I'm Mimi, and I'm here to help you navigate the wonderful world of emotions. It can be tough to understand our feelings sometimes, but I'm here to guide you through it. Whether you're feeling happy, tired, angry, or anything in between, let's explore these emotions together and find ways to express them healthily. So, tell me a bit about yourself and what's on your mind?"
+            }
+          ]
+        },
+        {
+          "role": "user",
           "parts": [
             {"text": m.text}
           ]
+        }
+      ],
+      "generationConfig": {
+        "temperature": 0.9,
+        "topK": 1,
+        "topP": 1,
+        "maxOutputTokens": 2048,
+        "stopSequences": []
+      },
+      "safetySettings": [
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "threshold": "BLOCK_ONLY_HIGH"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "threshold": "BLOCK_ONLY_HIGH"
+        },
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "threshold": "BLOCK_ONLY_HIGH"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "threshold": "BLOCK_ONLY_HIGH"
         }
       ]
     };
